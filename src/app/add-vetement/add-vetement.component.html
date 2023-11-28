@@ -1,0 +1,53 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un vetement :</h2>
+    </div>
+    <form >
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID vetement</label>
+        <input type="text" [(ngModel)]="newVetement.idVetement"
+        name="idvetement" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Nom vetement</label>
+        <input type="text"[(ngModel)]= "newVetement.nomVetement"
+        name="nomvetement" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Prix vetement</label>
+        <input type="number" [(ngModel)]= "newVetement.prixVetement"
+        name="prixvetement" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date production</label>
+        <input type="date" [(ngModel)]= "newVetement.dateprod"
+        name="dateprod" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>stock</label>
+            <select class="form-control form-control-lg" id="idG" name="idG"
+            [(ngModel)]="newIdG">
+             <option *ngFor="let v of genre" [value]="v.idG" >
+             {{v.nom}}
+            </option>
+            </select>
+            </div>
+            <div class="col-sm-16 col-md-16 col-lg-16">
+                <label class="mb-2">Image :</label>
+                <input type="file" (change)="onImageUpload($event)"
+                name="logo" class="form-control">
+                </div>
+                <div class="col-sm-16 col-md-16 col-lg-16">
+                    <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+                    style="width: 500px; height: 300px" />
+                    </div>
+                    
+                    
+        <div class="mt-2">
+        <button type="submit" (click)="addVetement()"class="btn btn-success">Ajouter</button>
+        <div>
+            <h3>{{message}}</h3>
+        </div>
+        </div>
+        </form>
+        </div>

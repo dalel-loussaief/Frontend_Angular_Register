@@ -1,0 +1,38 @@
+
+<div class="container">
+
+       <!--  <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Nom vetement en tapant</label>
+            <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+            </div>
+            </form> -->
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2 mt-2 ">
+                <label>Nom vetement en tapant</label>
+                <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+                </div>
+                </form>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+<table class="table table-striped">
+    <tr> <th>Id</th><th>Nom</th> <th>Prix</th> <th>Date production</th> <th>genre </tr>
+    <tbody *ngFor="let vetement of vetements | searchFilter: searchTerm ">
+    <tr >
+        <td>{{vetement.idVetement}}</td>
+        <td>{{vetement.nomVetement}}</td>
+        <td>{{vetement.prixVetement}}</td>
+        <td>{{vetement.dateprod | date:'dd/MM/yyyy'}}</td>
+        <td>{{vetement.genre.nom}}</td>
+        
+        <!-- <td><a class="btn btn-danger" (click)="supprimerVetement(vetement)">Supprimer</a></td>
+        <td><a class="btn btn-success" [routerLink]="['/updateVetement',vetement.idvetement]">Modifier</a></td> -->
+    </tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+
